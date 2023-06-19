@@ -60,17 +60,17 @@
         <property name="entityManagerFactory" ref="entityManagerFactory" />
     </bean>
   
-    <bean id="employeeOptedLeavesDAO" class="DAO.EmployeeOptedLeavesDAOImpl"/>
+
 
     <bean id="jobGradeHolidaysDAOImpl" class="DAO.JobGradeHolidaysDAOImpl"/>
     
-     <bean id="jobGradeLeavesDAOImpl" class="DAO.JobGradeLeavesDAOImpl"/>
+   
+      <bean id="holidayDAO" class="DAO.HolidayDAOImpl" />
 
     <bean id="employeeController" class="controllers.EmployeeController">
         <property name="employeeDAO" ref="employeeDAO"/>
-        <property name="employeeOptedLeavesDAO" ref="employeeOptedLeavesDAO"/>
+ 
         <property name="jobGradeHolidaysDAO" ref="jobGradeHolidaysDAOImpl"/>
-        <property name="jobGradeLeavesDAO" ref="jobGradeLeavesDAOImpl"/>
     </bean>
 
     <!-- Enable transactional support -->

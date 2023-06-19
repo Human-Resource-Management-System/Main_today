@@ -8,11 +8,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "chh_employees")
+@Table(name = "HRMS_Employees")
 public class Employee {
 	@Id
 	@Column(name = "empl_id")
-	private int emplId;
+	private Integer emplId;
 
 	@Column(name = "empl_frstname", nullable = true)
 	private String emplFirstname;
@@ -44,10 +44,6 @@ public class Employee {
 	@Column(name = "empl_designation", nullable = true)
 	private String emplDesignation;
 
-	private int basic_sal;
-	private int variable_sal;
-	private int fixed_sal;
-	private int ctc;
 	@Column(name = "empl_offemail", nullable = true)
 	private String emplOffemail;
 
@@ -78,7 +74,62 @@ public class Employee {
 	@Column(name = "empl_luuser", nullable = true)
 	private Integer emplLuuser;
 
+	@Column(name = "empl_ctc", nullable = true)
+	private Double empl_ctc;
+
+	@Column(name = "empl_basicsal", nullable = true)
+	private Double empl_basicsal;
+
+	@Column(name = "empl_fixedsal", nullable = true)
+	private Double empl_fixedsal;
+
+	@Column(name = "empl_variablesal", nullable = true)
+	private Double empl_variablesal;
+
+	@Column(name = "empl_status")
+	private String empl_status;
+
 	// Constructors, getters, and setters
+
+	public Double getEmpl_ctc() {
+		return empl_ctc;
+	}
+
+	public void setEmpl_ctc(Double empl_ctc) {
+		this.empl_ctc = empl_ctc;
+	}
+
+	public Double getEmpl_basicsal() {
+		return empl_basicsal;
+	}
+
+	public void setEmpl_basicsal(Double empl_basicsal) {
+		this.empl_basicsal = empl_basicsal;
+	}
+
+	public Double getEmpl_fixedsal() {
+		return empl_fixedsal;
+	}
+
+	public void setEmpl_fixedsal(Double empl_fixedsal) {
+		this.empl_fixedsal = empl_fixedsal;
+	}
+
+	public Double getEmpl_variablesal() {
+		return empl_variablesal;
+	}
+
+	public void setEmpl_variablesal(Double empl_variablesal) {
+		this.empl_variablesal = empl_variablesal;
+	}
+
+	public String getEmpl_status() {
+		return empl_status;
+	}
+
+	public void setEmpl_status(String empl_status) {
+		this.empl_status = empl_status;
+	}
 
 	public Employee() {
 	}
@@ -251,37 +302,5 @@ public class Employee {
 
 	public void setEmplLuuser(Integer emplLuuser) {
 		this.emplLuuser = emplLuuser;
-	}
-
-	public int getBasic_sal() {
-		return basic_sal;
-	}
-
-	public void setBasic_sal(int basic_sal) {
-		this.basic_sal = basic_sal;
-	}
-
-	public int getVariable_sal() {
-		return variable_sal;
-	}
-
-	public void setVariable_sal(int variable_sal) {
-		this.variable_sal = variable_sal;
-	}
-
-	public int getFixed_sal() {
-		return fixed_sal;
-	}
-
-	public void setFixed_sal(int fixed_sal) {
-		this.fixed_sal = fixed_sal;
-	}
-
-	public int getCtc() {
-		return ctc;
-	}
-
-	public void setCtc(int ctc) {
-		this.ctc = ctc;
 	}
 }
