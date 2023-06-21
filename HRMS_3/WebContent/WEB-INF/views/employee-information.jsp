@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%@page import="models.Holiday" %>
 <%@ page import="java.util.List" %>
+<c:set var="employee" value="${employee}" />
+
 
 <!DOCTYPE html>
 <html>
@@ -25,6 +28,21 @@
                     alert('Please select ' + maxSelection + ' holidays.');
                     return false;
                 }
+                
+                console.log($("#HolidayForm").serialize());
+                
+                $.ajax({
+                	url:"submit",
+                	type:"GET",
+                	data: $("#HolidayForm").serialize(),
+                	success: function(response){
+                		console.log(response);
+                	},
+                    error:function(error){
+                    	console.log(error);
+                    }   
+                });
+                
             });
         });
     </script>
@@ -35,6 +53,9 @@
     <h2>Employee Details</h2>
     <p>Employee ID: ${employee.emplId}</p>
     <p>Employee Job Grade: ${employee.emplJbgrId}</p>
+    <p>Employee Basic Pay: ${employee.basic_sal}</p>
+     <p>Employee Variable Pay: ${employee.variable_sal}</p>
+      <p>Employee fixed Pay: ${employee.fixed_sal}</p>
     <p>Name: ${employee.emplFirstname} ${employee.emplLastname}</p>
     <!-- Add other employee details as needed -->
 
@@ -43,7 +64,7 @@
     <p>Total Number of Optional Holidays: ${jobGradeHolidays.jbgr_totalnoh - mandholidays}</p>
     <!-- Add other leave-related information as needed -->
 
-    <form method="post" action="/submit">
+    <form id="HolidayForm">
         <table id="dataTable">
             <thead>
                 <tr>
@@ -73,7 +94,7 @@
             </tbody>
         </table>
 
-        <input type="submit" value="Submit" id="submitBtn">
+        <input type="button" value="Submit" id="submitBtn">
     </form>
 </body>
 </html>

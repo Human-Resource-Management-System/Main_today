@@ -8,128 +8,85 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "HRMS_Employees")
+@Table(name = "hr_employees")
 public class Employee {
 	@Id
 	@Column(name = "empl_id")
-	private Integer emplId;
+	private int emplId;
 
-	@Column(name = "empl_frstname", nullable = true)
+	@Column(name = "empl_frstname")
 	private String emplFirstname;
 
-	@Column(name = "empl_lastname", nullable = true)
+	@Column(name = "empl_lastname")
 	private String emplLastname;
 
-	@Column(name = "empl_surname", nullable = true)
+	@Column(name = "empl_surname")
 	private String emplSurname;
 
-	@Column(name = "empl_rmanager_empl_id", nullable = true)
+	@Column(name = "empl_rmanager_empl_id")
 	private Integer emplRmanagerEmplId;
 
-	@Column(name = "empl_hr_empl_id", nullable = true)
+	@Column(name = "empl_hr_empl_id")
 	private Integer emplHrEmplId;
 
-	@Column(name = "empl_jbgr_id", nullable = true)
+	@Column(name = "empl_jbgr_id")
 	private String emplJbgrId;
 
-	@Column(name = "empl_photo", nullable = true)
+	@Column(name = "empl_photo")
 	private String emplPhoto;
 
-	@Column(name = "empl_jondate", nullable = true)
+	@Column(name = "empl_jondate")
 	private Date emplJondate;
 
-	@Column(name = "empl_dob", nullable = true)
+	@Column(name = "empl_dob")
 	private Date emplDob;
 
-	@Column(name = "empl_designation", nullable = true)
+	@Column(name = "empl_designation")
 	private String emplDesignation;
 
-	@Column(name = "empl_offemail", nullable = true)
+	@Column(name = "empl_basicsal")
+	private int basic_sal;
+
+	@Column(name = "empl_variablesal")
+	private int variable_sal;
+
+	@Column(name = "empl_fixedsal")
+	private int fixed_sal;
+
+	@Column(name = "empl_ctc")
+	private int ctc;
+
+	@Column(name = "empl_offemail")
 	private String emplOffemail;
 
-	@Column(name = "empl_pemail", nullable = true)
+	@Column(name = "empl_pemail")
 	private String emplPemail;
 
-	@Column(name = "empl_mobile", nullable = true)
+	@Column(name = "empl_mobile")
 	private long emplMobile;
 
-	@Column(name = "empl_alemail", nullable = true)
+	@Column(name = "empl_alemail")
 	private String emplAlemail;
 
-	@Column(name = "empl_bloodgroup", nullable = true)
+	@Column(name = "empl_bloodgroup")
 	private String emplBloodgroup;
 
-	@Column(name = "empl_gender", nullable = true)
+	@Column(name = "empl_gender")
 	private char emplGender;
 
-	@Column(name = "empl_address", nullable = true)
+	@Column(name = "empl_address")
 	private String emplAddress;
 
-	@Column(name = "empl_fname", nullable = true)
+	@Column(name = "empl_fname")
 	private String emplFname;
 
-	@Column(name = "empl_luudate", nullable = true)
+	@Column(name = "empl_luudate")
 	private Date emplLuudate;
 
-	@Column(name = "empl_luuser", nullable = true)
+	@Column(name = "empl_luuser")
 	private Integer emplLuuser;
 
-	@Column(name = "empl_ctc", nullable = true)
-	private Double empl_ctc;
-
-	@Column(name = "empl_basicsal", nullable = true)
-	private Double empl_basicsal;
-
-	@Column(name = "empl_fixedsal", nullable = true)
-	private Double empl_fixedsal;
-
-	@Column(name = "empl_variablesal", nullable = true)
-	private Double empl_variablesal;
-
-	@Column(name = "empl_status")
-	private String empl_status;
-
 	// Constructors, getters, and setters
-
-	public Double getEmpl_ctc() {
-		return empl_ctc;
-	}
-
-	public void setEmpl_ctc(Double empl_ctc) {
-		this.empl_ctc = empl_ctc;
-	}
-
-	public Double getEmpl_basicsal() {
-		return empl_basicsal;
-	}
-
-	public void setEmpl_basicsal(Double empl_basicsal) {
-		this.empl_basicsal = empl_basicsal;
-	}
-
-	public Double getEmpl_fixedsal() {
-		return empl_fixedsal;
-	}
-
-	public void setEmpl_fixedsal(Double empl_fixedsal) {
-		this.empl_fixedsal = empl_fixedsal;
-	}
-
-	public Double getEmpl_variablesal() {
-		return empl_variablesal;
-	}
-
-	public void setEmpl_variablesal(Double empl_variablesal) {
-		this.empl_variablesal = empl_variablesal;
-	}
-
-	public String getEmpl_status() {
-		return empl_status;
-	}
-
-	public void setEmpl_status(String empl_status) {
-		this.empl_status = empl_status;
-	}
 
 	public Employee() {
 	}
@@ -302,5 +259,37 @@ public class Employee {
 
 	public void setEmplLuuser(Integer emplLuuser) {
 		this.emplLuuser = emplLuuser;
+	}
+
+	public int getBasic_sal() {
+		return basic_sal;
+	}
+
+	public void setBasic_sal(int basic_sal) {
+		this.basic_sal = basic_sal;
+	}
+
+	public int getVariable_sal() {
+		return variable_sal;
+	}
+
+	public void setVariable_sal(int variable_sal) {
+		this.variable_sal = variable_sal;
+	}
+
+	public int getFixed_sal() {
+		return fixed_sal;
+	}
+
+	public void setFixed_sal(int fixed_sal) {
+		this.fixed_sal = fixed_sal;
+	}
+
+	public int getCtc() {
+		return ctc;
+	}
+
+	public void setCtc(int ctc) {
+		this.ctc = ctc;
 	}
 }

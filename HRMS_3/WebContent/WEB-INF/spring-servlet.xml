@@ -66,6 +66,7 @@
     
    
       <bean id="holidayDAO" class="DAO.HolidayDAOImpl" />
+      <bean id="employeeoptedleaves" class="models.EmployeeOptedLeaves" />
 
     <bean id="employeeController" class="controllers.EmployeeController">
         <property name="employeeDAO" ref="employeeDAO"/>

@@ -1,5 +1,6 @@
 package controllers;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,11 +9,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import DAO.EmployeeDAO;
 import DAO.HolidayDAO;
 import DAO.JobGradeHolidaysDAO;
 import models.Employee;
+import models.EmployeeOptedLeaves;
 import models.Holiday;
 import models.JobGradeHolidays;
 
@@ -22,6 +27,8 @@ public class EmployeeController {
 	private EmployeeDAO employeeDAO;
 	@Autowired
 	private HolidayDAO holidayDAO;
+	@Autowired
+	private EmployeeOptedLeaves employeeoptedleaves;
 
 	@Autowired
 	private JobGradeHolidaysDAO jobGradeHolidaysDAO;
@@ -72,4 +79,17 @@ public class EmployeeController {
 		return "error-page";
 	}
 
+	@RequestMapping(value = "/employee/submit", method = RequestMethod.GET)
+	public String submitSelectedHolidays(@RequestParam("selectedHolidays") List<String> selectedHolidays) {
+		// Process the selected holidays and save to the database
+		System.out.println("hello");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		for (String holiday : selectedHolidays) {
+
+			System.out.println(holiday);
+
+		}
+
+		return "redirect:/success";
+	}
 }
